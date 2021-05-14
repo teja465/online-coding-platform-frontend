@@ -1,11 +1,12 @@
 .App{
-    margin-left: 5%;
-    margin-right: 5%;
+    margin-left: 2%;
+    margin-right: 2%;
+    max-width: 100%;
 }
-
+/* 
 @media only screen and (max-width: 400px) {
     .App{
         margin-left: 5px;
         margin-right: 5px;
     }
-  }
+  } */
