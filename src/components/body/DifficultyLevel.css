@@ -1,0 +1,19 @@
+
+.Easy,.Medium,.Hard{
+    max-width: fit-content;
+    max-width: 70px;
+    margin-left: -10px;
+    border-radius: 5%;
+}
+.Easy{
+    background-color: #5CB85C;
+    padding-left: 15px;
+}
+.Medium{
+    background-color: #F0AD4E;
+}
+.Hard{
+    background-color: #D9534F;
+    padding-left: 13px;
+
+}

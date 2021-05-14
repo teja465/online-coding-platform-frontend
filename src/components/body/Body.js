@@ -1,6 +1,7 @@
 import React, { useState,useEffect } from 'react'
 import {domain} from "../../Shared"
 import {QuestionInHomePage  } from "./QuestionInHomePage";
+import "./Body.css"
 const url =domain+'api/questions'
 
 
@@ -20,11 +21,12 @@ export  default function Body()
    
 
     return (
-        <div>
-            <h1>This is body component</h1>
+        <div><h3>Questions will be displayed here</h3>
             {questions.length ===0?"Fetching questions please wait":""}
             {console.log(questions)}
-            {questions.map((qn)=> QuestionInHomePage(qn))}
+            <ul className="list-group list-group-flush question_title">
+                {questions.map((qn)=> QuestionInHomePage(qn))}
+            </ul>
         </div>
     )
 }
