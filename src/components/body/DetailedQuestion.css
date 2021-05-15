@@ -19,15 +19,16 @@
 .question_description{
     background-color: aqua;
     width: 35%;
-    max-height: 35%;
-    height: 500px;
+    min-height: 400px;
     overflow-y: scroll;
     overflow-x: scroll;
 }
 
 .code_editor{
     background-color: beige;
-    min-height: 500px;
+    min-height: 00px;
+    overflow-y: scroll;
+    overflow-x: scroll;
 }
 
 .input_box{
@@ -35,13 +36,17 @@
     width: 35%;
     max-height: 500px;
     min-height: 150px;
+    overflow-y: scroll;
+    overflow-x: scroll;
 
 
 }
 .output_box{
     background-color: lightblue;
-    max-height: 500px;
+    max-height: 250px;
     min-height: 150px;
+    overflow-y: scroll;
+    overflow-x: scroll;
 }
 .test{
     background-color: royalblue;
