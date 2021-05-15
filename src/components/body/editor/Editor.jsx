@@ -100,7 +100,8 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
             //     });
             const response = await fetch(url,requestOptions);
             const result = await response.json();
-            return result.run_status.output
+            // return result.run_status.output
+            return result
           
             
 

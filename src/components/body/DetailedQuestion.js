@@ -77,7 +77,35 @@ export function DetailedQuestion(){
                     </div>
                     <div  id="output_box" className ="output_box  col-12 col-lg-7">
                         {/* {output_div.innerHTML=""} */}
-                        {combined_result.length>=0? combined_result.map(res=>res.actual_output) : "Click on RUN"}
+                        <table>
+                            <thead>
+                                <th> sample Input </th>
+                                <th> Expected output  </th>
+                                <th> Actual output  </th>
+                                <th> Result  </th>
+                            </thead>
+                            <tbody>
+                            {combined_result.map((res)=>{
+                                return <>
+                                        <tr> 
+                                            <td>{res.input}</td>
+                                            <td>{res.expected_output}</td>
+                                            <td>{res.actual_output}</td>
+                                            <td>{ShowVerdict(res.expected_output,res.actual_output)}</td>
+                                        </tr>
+                                </>
+                                
+
+                                
+                            })}
+
+
+                            </tbody>
+
+                        </table>
+
+
+                        {/* {combined_result.length>=0? combined_result.map(res=> { return showRow(res)}) : "Click on RUN"} */}
                         
                     </div>
                     
@@ -90,6 +118,14 @@ export function DetailedQuestion(){
             
         </div>
     )
+}
+function ShowVerdict(a,b) {
+    console.log("In verdict ",a.trim(),b.trim())
+    if (a.trim()==b.trim()){
+        return "Passed"
+    }
+    return "Failed"
+    
 }
 function  showResult(combined_result) {
     console.log("In show result ",combined_result)
