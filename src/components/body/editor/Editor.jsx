@@ -84,23 +84,34 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
                     }
                 })
             };
-             await fetch(url, requestOptions)
-                .then(response => response.json())
-                .then(data => {
-                    console.log("resp from backend is ",data)
-                     return data.run_status.output_html
-                    // setoutput(data.run_status.output_html)
-                });
+            //  await  fetch(url, requestOptions)
+            //     .then(response => {  return  response.json()})
+            //     .then(data => {
+            //         console.log("resp from backend is ",data)
+            //         if (!(data === undefined)){
+            //             console.log("dat is not undefined",data===undefined)
+            //             return data
+            //         }
+            //         else{
+            //             console.log("in else")
+            //         }
+                     
+            //         // setoutput(data.run_status.output_html)
+            //     });
+            const response = await fetch(url,requestOptions);
+            const result = await response.json();
+            return result.run_status.output
+          
             
 
     }
-      function handleCompile() {
+     async  function handleCompile() {
           console.log(testcases)
-          output_div.innerHTML=""
+          
           var final_output=[];
           for(var i=0;i<testcases.length;i++)
           {
-                var result =  run_testcase(testcases[i].fields.input)
+                var result = await run_testcase(testcases[i].fields.input)
                  console.log("Gotten op is ",result)
                 final_output.push(
                     {
@@ -110,7 +121,7 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
                     }
                 )
           }
-          console.log(final_output)
+          console.log("Final o/p is ",final_output)
           setcombined_result(final_output)
 
       }

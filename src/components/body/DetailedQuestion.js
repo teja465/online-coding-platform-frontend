@@ -76,12 +76,11 @@ export function DetailedQuestion(){
                         input will be taken from here
                     </div>
                     <div  id="output_box" className ="output_box  col-12 col-lg-7">
-                        {combined_result.length>=1? "Got result" : "Click on RUN"}
+                        {/* {output_div.innerHTML=""} */}
+                        {combined_result.length>=0? combined_result.map(res=>res.actual_output) : "Click on RUN"}
                         
                     </div>
                     
-                    {console.log(output)}
-                    {/* {output_div!=null?output_div.innerHTML+=output:"" } */}
                     
 
                 </div>
@@ -91,4 +90,36 @@ export function DetailedQuestion(){
             
         </div>
     )
+}
+function  showResult(combined_result) {
+    console.log("In show result ",combined_result)
+    return (
+        <div>
+            <table>
+                <thead>
+                    <th> sample Input </th>
+                    <th> Expected output  </th>
+                    <th> Actual output  </th>
+                    <th> Result  </th>
+                </thead>
+                <tbody>
+                    
+                        {combined_result.map(res => {
+                            console.log("in map",res.input,res.expected_output,res.actual_output)
+                            return (
+                                <tr>
+                                    <td>{res.input}</td>
+                                    <td>{res.expected_output}</td>
+                                    <td>{res.actual_output}</td>
+                                    <td>Yes/No</td>
+                                </tr>
+                            )
+                        })}
+                    
+                </tbody>
+            </table>
+        </div>
+    )
+
+    
 }
