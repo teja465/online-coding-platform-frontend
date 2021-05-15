@@ -2,6 +2,7 @@ import React, { useEffect,useState } from 'react'
 import { domain } from "../../Shared";
 import "./DetailedQuestion.css"
 import  Editor  from "./editor/Editor";
+import { DifficultyLevel } from "./DifficultyLevelBox";
 export function DetailedQuestion(){
 
 
@@ -46,25 +47,32 @@ export function DetailedQuestion(){
             <div className ="DetailedQuestion">
                 <div className="row">
                     <div className ="question_description col-12 col-lg-5">
-                        question description here
-                        {question.fields && <p>{question.fields.statement}</p>}
-                        {question.fields && <p> Difficulty : {question.fields.difficulty}</p>}
+                        <div className="question_title  row">
+                            <div className="row col-8">
+                                {question.fields && question.fields.title}
+                            </div>
+                            <div className="row col-2"> </div>
+
+                            <div className="row col">
+                                { question.fields && showDifficultyLevel(question.fields.difficulty)}
+                            </div>
+                                            
+                            </div>
+                        
+                       {question.fields && <p className="question_statement">{question.fields.statement}</p>}
                         {question.fields && <p> Constraints : {question.fields.constraints}</p>}
                         {question.fields && <p> Points : {question.fields.points}</p>}
-                        <p>loremaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaloremaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaloremaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p>
                         
-                            
-                            
-                           {[1,2,3,4,5,6,7,8,9,10].map(x=>{ return<> Hello <br/></>})}
-                           {[1,2,3,4,5,6,7,8,9,10].map(x=>{ return<> Hello <br/></>})}
-                           {[1,2,3,4,5,6,7,8,9,10].map(x=>{ return<> Hello <br/></>})}
+                        
                         {/* test cases */}
                         {testcases.map((tc,ind)=>
                         <div>
-                            <h4>Sample testcase {ind+1}</h4>
-                            <p>Input: {tc.fields.input}</p>
-                            <p>Output : {tc.fields.output}</p>
-                            <hr/>
+                            <code>
+                                <h4>Sample testcase {ind+1}</h4>
+                                <p>Input: {tc.fields.input}</p>
+                                <p>Output : {tc.fields.output}</p>
+                                <hr/>
+                            </code>
                         </div>)}
                     </div>
                     <div className ="code_editor col-12 col-lg-7">
@@ -79,13 +87,11 @@ export function DetailedQuestion(){
                 
                 <div className="row">
                     <div className ="input_box col-12 col-lg-5"> 
-                        input will be taken from here
-                        n=input()
-                        print(n[::-1])
+                        type input here
                     </div>
                     <div  id="output_box" className ="output_box  col-12 col-lg-7">
                         {/* {output_div.innerHTML=""} */}
-                        <table>
+                        <table border="1px">
                             <thead>
                                 <th> sample Input </th>
                                 <th> Expected output  </th>
@@ -95,7 +101,6 @@ export function DetailedQuestion(){
                             <tbody>
                     
                             {combined_result.map(res=>DisplayResult(res))}
-                            {/* {combined_result.map(res=>"Hello")} */}
 
                             </tbody>
 
@@ -114,9 +119,9 @@ export function DetailedQuestion(){
 }
 function verdict(a,b){
     if (a.trim()==b.trim()){
-        return "PASSED"
+        return <p  className="PASSED">PASSED</p>
     }
-    return "FAILED"
+    return <p className="FAILED">FAILED</p>
 }
 function DisplayResult(res){
     console.log("In display result ",res)
@@ -131,7 +136,7 @@ function DisplayResult(res){
         </>
 
     }
-    
+
     if(res.actual_output.run_status.status=="RE"){
         return  <>
         <tr>
@@ -164,7 +169,11 @@ function DisplayResult(res){
         <td> {verdict(res.expected_output,res.actual_output.run_status.output)}</td>
     </tr>
     </> 
-    
-
-
 }
+
+
+ const showDifficultyLevel=(level)=>{
+     return <p  className={level+"D"}>
+         {level}
+     </p>
+ }

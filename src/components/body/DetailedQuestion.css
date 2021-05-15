@@ -6,6 +6,7 @@
 
  .question_description,.code_editor,.input_box,.output_box{
      border: 1px solid black;
+     line-height: 90%;
     /* border-radius: 3%;
     margin-bottom: 5px;  */
 }
@@ -17,12 +18,15 @@
     width: 100%;
 }
 .question_description{
-    /* background-color: aqua; */
+    padding-top: 10px;
+    background-color: #F7F7F9;
     width: 35%;
     max-height: 650px;
     min-height: 400px;
     overflow-y: scroll;
     overflow-x: scroll;
+    font-family: "Courier New";
+    font-size: large;
     
 }
 ::-webkit-scrollbar {
@@ -55,4 +59,36 @@
 }
 .test{
     /* background-color: royalblue; */
+}
+.question_title{
+    font-variant-caps: all-petite-caps;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: larger;
+    margin-bottom: 30px;
+}
+
+.EasyD,.MediumD,.HardD{
+    padding-left: 5px;
+    padding-top: 7px;
+    width: 85px;
+    height: 30px;
+    background-color: peru;
+    border-radius: 10px;
+
+}
+.EasyD,.HardD{
+    padding-left: 20px;
+
+}
+
+.FAILED{
+    margin-top: 7px;
+    color: red;
+    font-weight: 700;
+}
+
+.PASSED{
+    margin-top: 7px;
+    color: green;
+    font-weight: 700;
 }

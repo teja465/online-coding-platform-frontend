@@ -21,7 +21,7 @@ export  default function Body()
    
 
     return (
-        <div><h3>Questions will be displayed here</h3>
+        <div>
             {questions.length ===0?"Fetching questions please wait":""}
             {console.log(questions)}
             <ul className="list-group list-group-flush question_title">

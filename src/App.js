@@ -6,6 +6,7 @@ import {
   Route,
 } from "react-router-dom";
 
+
 import { DetailedQuestion } from "./components/body/DetailedQuestion";
 function App() {
   return (

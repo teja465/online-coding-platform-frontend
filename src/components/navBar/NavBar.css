@@ -1,0 +1,11 @@
+.NavBar{
+    background-color: black;
+    color: white;
+    height: 50px;
+}
+.BrandName{
+    padding-top: 4px;
+    margin-left: 5px;
+    color: white;
+    
+}
