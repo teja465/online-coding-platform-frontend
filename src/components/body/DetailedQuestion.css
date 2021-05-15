@@ -5,34 +5,39 @@
 
 
  .question_description,.code_editor,.input_box,.output_box{
-    border: 1px solid black;
-    border-radius: 3%;
-    margin-bottom: 5px;
+     border: 1px solid black;
+    /* border-radius: 3%;
+    margin-bottom: 5px;  */
 }
 
 
 .container{
     margin: 10px;
-    background-color: rgb(24, 218, 24);
+    /* background-color: rgb(24, 218, 24); */
     width: 100%;
 }
 .question_description{
-    background-color: aqua;
+    /* background-color: aqua; */
     width: 35%;
+    max-height: 650px;
     min-height: 400px;
     overflow-y: scroll;
     overflow-x: scroll;
+    
 }
+::-webkit-scrollbar {
+    width: 0px;
+  }
 
 .code_editor{
-    background-color: beige;
+    /* background-color: beige; */
     min-height: 00px;
-    overflow-y: scroll;
-    overflow-x: scroll;
+    /* overflow-y: scroll; */
+    /* overflow-x: scroll; */
 }
 
 .input_box{
-    background-color: darkgrey;
+    /* background-color: darkgrey; */
     width: 35%;
     max-height: 500px;
     min-height: 150px;
@@ -42,12 +47,12 @@
 
 }
 .output_box{
-    background-color: lightblue;
+    /* background-color: lightblue; */
     max-height: 250px;
     min-height: 150px;
     overflow-y: scroll;
     overflow-x: scroll;
 }
 .test{
-    background-color: royalblue;
+    /* background-color: royalblue; */
 }

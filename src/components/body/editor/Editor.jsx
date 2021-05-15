@@ -35,7 +35,7 @@ const override = `
 function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
      const [language, setLanguage] = useState("python")
      const [theme, setTheme] = useState("monokai")
-     const [codeTextInput, setcodeTextInput] = useState("")
+     const [codeTextInput, setcodeTextInput] = useState(``)
      const [loading, setloading] = useState(false)
     //  const [userInput, setuserInput] = useState("")
     //  const [output, setoutput] = useState("")
@@ -84,20 +84,7 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
                     }
                 })
             };
-            //  await  fetch(url, requestOptions)
-            //     .then(response => {  return  response.json()})
-            //     .then(data => {
-            //         console.log("resp from backend is ",data)
-            //         if (!(data === undefined)){
-            //             console.log("dat is not undefined",data===undefined)
-            //             return data
-            //         }
-            //         else{
-            //             console.log("in else")
-            //         }
-                     
-            //         // setoutput(data.run_status.output_html)
-            //     });
+            
             const response = await fetch(url,requestOptions);
             const result = await response.json();
             // return result.run_status.output
