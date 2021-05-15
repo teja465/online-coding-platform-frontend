@@ -94,6 +94,7 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
 
     }
      async  function handleCompile() {
+         setloading(true)
           console.log(testcases)
           
           var final_output=[];
@@ -111,6 +112,8 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
           }
           console.log("Final o/p is ",final_output)
           setcombined_result(final_output)
+         setloading(false)
+
 
       }
         return (

@@ -3,6 +3,7 @@ import { domain } from "../../Shared";
 import "./DetailedQuestion.css"
 import  Editor  from "./editor/Editor";
 import { DifficultyLevel } from "./DifficultyLevelBox";
+import { orange, red } from '@material-ui/core/colors';
 export function DetailedQuestion(){
 
 
@@ -48,7 +49,7 @@ export function DetailedQuestion(){
                 <div className="row">
                     <div className ="question_description col-12 col-lg-5">
                         <div className="question_title  row">
-                            <div className="row col-8">
+                            <div className="row col-8" style={{marginLeft:"5px"}}>
                                 {question.fields && question.fields.title}
                             </div>
                             <div className="row col-2"> </div>
@@ -65,6 +66,7 @@ export function DetailedQuestion(){
                         
                         
                         {/* test cases */}
+                        {testcases.length==0 && <p style={{color:"red"}}> No testcases for this question click <a href="#"> here </a> to contribute</p>}
                         {testcases.map((tc,ind)=>
                         <div>
                             <code>
@@ -105,9 +107,6 @@ export function DetailedQuestion(){
                             </tbody>
 
                         </table>
-
-
-                        
                     </div>
                 </div>
 
@@ -132,6 +131,7 @@ function DisplayResult(res){
             <td> {res.input}</td>
             <td> {res.expected_output}</td>
             <td> PLEASE TYPE CODE </td>
+            <td> NA </td>
         </tr>
         </>
 
@@ -142,7 +142,9 @@ function DisplayResult(res){
         <tr>
         <td> {res.input}</td>
             <td> {res.expected_output}</td>
-            <td> Got Runtime ERROR</td>
+            <td style={{color:"red",fontWeight:"larger"}}> Got Runtime ERROR</td>
+            <td> NA </td>
+
         </tr>
         </>
         
@@ -153,7 +155,9 @@ function DisplayResult(res){
         <tr>
             <td> {res.input}</td>
             <td> {res.expected_output}</td>
-            <td> Got compile time ERROR</td>
+            <td style={{color:"red",fontWeight:"larger"}}> Got compile time ERROR</td>
+            <td> NA </td>
+
         </tr>
         </>
         
