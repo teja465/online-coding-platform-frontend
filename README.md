@@ -1,7 +1,6 @@
 Author :katukuri.raviteja465@gmail.com
 If anyone intrested to Improve or Add  any  feature please send me a mail so we can discuss about it
 # Online coding platform where users can select a question from available questions and type code and check whether their code passes all testcases or not.
-Users can also contribute questions or testcases upon validation by admin they are show to users on website 
 
 Features still need to be added (putting featues to this list to track my progress)
  1)  Add Contribute question page  ( Question neeed to be validated by admin(superuser) before showing to users on website) 
