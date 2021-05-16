@@ -6,7 +6,7 @@ If anyone intrested to Improve or Add  any  feature please send me a mail so we 
 
  0)  Sync code user is typing with localStorage   [ **Done** ]
  1)  Add Contribute question page  ( Question neeed to be validated by admin(superuser) before showing to users on website) 
- 2)  Add Contribute testcase page  (       ""                 ""                 ""            ""     )
+ 2)  Add Contribute testcase page .
  3)  Add submit button and upon clicking it we should validate with private testcases and crate a record in ProblemSubmissions table
  4)  If user opens a question and if he already got "AC" for that question it should show as "SOLVED"(Create an end point which takes quetionID and user_id and  checks whether  he      got "AC" for that question  or no)
  5)  Try to restrict number of submissions as we are running out of free  api requests
