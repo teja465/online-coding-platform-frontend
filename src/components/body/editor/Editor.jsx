@@ -32,7 +32,7 @@ const override = `
   display: block;
   border-color: red;
 `;
-function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
+function Editor({question,setoutput,testcases,output_div,setcombined_result,settoShow}) {
      const [language, setLanguage] = useState("python")
      const [theme, setTheme] = useState("monokai")
      const [codeTextInput, setcodeTextInput] = useState(``)
@@ -113,6 +113,7 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
         //   console.log("Final o/p is ",final_output)
           setcombined_result(final_output)
          setloading(false)
+         settoShow("output")
 
 
       }

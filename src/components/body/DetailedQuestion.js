@@ -12,6 +12,8 @@ export function DetailedQuestion(){
     const [output, setoutput] = useState("")
     const [combined_result, setcombined_result] = useState([])
     const [toShow, settoShow] = useState("input")
+
+    document.title="doCode | solve problem" 
     
     const handleShownInputOutputButtonClick = (name)=>{
         settoShow(name)
@@ -34,10 +36,12 @@ export function DetailedQuestion(){
                 return setquestion(data[0])
                 } )
         }
+
     function getIdFromUrl(){
         const pk=window.location.pathname.substr(9,)
         return pk
     }
+
     const pk = getIdFromUrl()
     var url =`${domain}api/problem/title/${pk}`
 
@@ -49,6 +53,7 @@ export function DetailedQuestion(){
     return (
         
         <div>
+            
             <div className ="DetailedQuestion">
                 <div className="row">
                     <div className ="question_description col-12 col-lg-5">
@@ -85,16 +90,16 @@ export function DetailedQuestion(){
                          <Editor question ={question} setoutput ={setoutput}
                           testcases={testcases}
                           setcombined_result ={setcombined_result}
-                           output_div={output_div} />
+                           output_div={output_div} settoShow={settoShow} />
                     </div>
                 </div>
                 <div className="row input_output_boxes_actions">
 
-                    <div class="btn-group" role="group" aria-label="Basic example">
-                        <button type="button" onClick={()=>settoShow("input")}  class="btn btn-secondary"> Input</button>
-                        <button type="button" onClick={()=>settoShow("output")}  class="btn btn-secondary">Output</button>
+                    <div className="btn-group" role="group" aria-label="Basic example">
+                        <button type="button" onClick={()=>settoShow("input")}   className={toShow=="input"?" btn btn-primary btn-sm ":"btn btn-outline-primary btn-sm"}>Show Input</button>&nbsp;
+                        <button type="button" onClick={()=>settoShow("output")}  className={toShow=="output"?" btn btn-primary btn-sm ":"btn btn-outline-primary btn-sm"}>Show Output</button>
                     </div>
-
+ 
                 </div>
                 <div className="row">
                     <div className ={toShow!="input"?"d-none":""+ "input_box col-12 col-lg-5"}> 
@@ -102,6 +107,7 @@ export function DetailedQuestion(){
                     </div>
                     <div  id="output_box" className ={ toShow!="output"?"d-none":""+ "output_box  col-12 col-lg-7"}>
                         {/* {output_div.innerHTML=""} */}
+                        
                         {combined_result.length<=0?"Output will be shown here":""}
                         <table  border="1px">
                             <thead className={combined_result.length<=0? "d-none":""}>

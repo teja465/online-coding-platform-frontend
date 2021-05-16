@@ -1,3 +1,7 @@
 .question-title:hover{
     background-color: #F7F7F9;
 }
+.li_qn_title{
+    border-top: 1px solid black;
+    
+}

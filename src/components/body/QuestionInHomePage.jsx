@@ -16,14 +16,16 @@ import "./QuestionInHomePage.css"
 
     return (
         <div>
-            <li className ="list-group-item question-title">
-            <div className="row" onClick={e=>handleClick(e)} >
+            <li  className ="list-group-item question-title ">
+            
+            <div className="row li_qn_title" onClick={e=>handleClick(e)} >
                 <div className="col-10 col-lg-10">
                     <a href={url} onClick={e=>handleClick(e)}>{question.fields.title}</a>
                 </div>
                 <div className={"col-2 col-lg-2 "+question.fields.difficulty}>
                     {DifficultyLevel(question.fields.difficulty)}
                 </div>
+               
             </div>
             </li>
         </div>

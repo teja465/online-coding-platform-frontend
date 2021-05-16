@@ -5,6 +5,7 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
+import ContributeProblem from "./components/contributions/ContributeProblem";
 
 
 import { DetailedQuestion } from "./components/body/DetailedQuestion";
@@ -18,6 +19,9 @@ function App() {
           </Route>
           <Route exact path="/problem/:id">
             <DetailedQuestion />
+          </Route>
+          <Route exact path="/contribute-question">
+            <ContributeProblem />
           </Route>
          
         </Switch>
