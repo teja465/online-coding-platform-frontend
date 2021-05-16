@@ -62,7 +62,7 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
 
       const handleLanguageChange = (event) => {
         const name = event.target.value;
-        console.log('lang change',name)
+        // console.log('lang change',name)
         setLanguage(name)
       };
       
@@ -95,13 +95,13 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
     }
      async  function handleCompile() {
          setloading(true)
-          console.log(testcases)
+        //   console.log(testcases)
           
           var final_output=[];
           for(var i=0;i<testcases.length;i++)
           {
                 var result = await run_testcase(testcases[i].fields.input)
-                 console.log("Gotten op is ",result)
+                //  console.log("Gotten op is ",result)
                 final_output.push(
                     {
                         input:testcases[i].fields.input,
@@ -110,7 +110,7 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result}) {
                     }
                 )
           }
-          console.log("Final o/p is ",final_output)
+        //   console.log("Final o/p is ",final_output)
           setcombined_result(final_output)
          setloading(false)
 
