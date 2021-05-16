@@ -33,9 +33,13 @@ const override = `
   border-color: red;
 `;
 function Editor({question,setoutput,testcases,output_div,setcombined_result,settoShow}) {
+    var code_from_ls = localStorage.getItem("code")
+    console.log("from localstorge is ",code_from_ls)
      const [language, setLanguage] = useState("python")
      const [theme, setTheme] = useState("monokai")
-     const [codeTextInput, setcodeTextInput] = useState(``)
+     const [codeTextInput, setcodeTextInput] = useState(code_from_ls)
+     console.log("Init code is ",codeTextInput)
+
      const [loading, setloading] = useState(false)
     //  const [userInput, setuserInput] = useState("")
     //  const [output, setoutput] = useState("")
@@ -67,6 +71,7 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result,sett
       };
       
       const handleCodeTypeChange=(code)=>{
+          localStorage.setItem("code",code)
           setcodeTextInput(code)
       }
       
@@ -169,7 +174,7 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result,sett
                                 theme={theme}
                                 onChange={handleCodeTypeChange}
                                 name="UNIQUE_ID_OF_DIV"
-                                
+                                value={codeTextInput}
                                 height="500px"
                                 width="95%"
                                 fontSize={15}

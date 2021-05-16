@@ -23,8 +23,11 @@ export function DetailedQuestion(){
         {
             fetch(url)
             .then(resp => resp.json())
-            .catch(err =>alert('err'))
+            .catch(err =>alert(err))
             .then(data => {
+                if (data == undefined){
+                    return alert("Unable to fetch Question details please retry again")
+                }
                 var testcases =[];
                 var i=0;
                 for (i = 0; i < data.length; i++) {
