@@ -3,7 +3,8 @@ If anyone intrested to Improve or Add  any  feature please send me a mail so we 
 # Online coding platform where users can select a question from available questions and type code and check whether their code passes all testcases or not.
 
 **Features need to be added (putting featues to this list to track my progress)**
- 0)  ~~Sync code user is typing with localStorage ~~
+
+ 0)  Sync code user is typing with localStorage    **Done**
  1)  Add Contribute question page  ( Question neeed to be validated by admin(superuser) before showing to users on website) 
  2)  Add Contribute testcase page  (       ""                 ""                 ""            ""     )
  3)  Add submit button and upon clicking it we should validate with private testcases and crate a record in ProblemSubmissions table
