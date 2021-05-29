@@ -32,13 +32,12 @@ const override = `
   display: block;
   border-color: red;
 `;
-function Editor({question,setoutput,testcases,output_div,setcombined_result,settoShow}) {
+function Editor({question,setoutput,testcases,output_div,setcombined_result,settoShow,setpr_output}) {
     var code_from_ls = localStorage.getItem("code")
-    console.log("from localstorge is ",code_from_ls)
      const [language, setLanguage] = useState("python")
      const [theme, setTheme] = useState("monokai")
      const [codeTextInput, setcodeTextInput] = useState(code_from_ls)
-     console.log("Init code is ",codeTextInput)
+    //  console.log("Init code is ",codeTextInput)
 
      const [loading, setloading] = useState(false)
     //  const [userInput, setuserInput] = useState("")
@@ -101,6 +100,7 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result,sett
      async  function handleCompile() {
          setloading(true)
         //   console.log(testcases)
+        setpr_output([])
           
           var final_output=[];
           for(var i=0;i<testcases.length;i++)
@@ -120,6 +120,38 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result,sett
          setloading(false)
          settoShow("output")
 
+
+      }
+
+      async function handleSubmit(){
+        setcombined_result([])
+          const code =codeTextInput;
+          const lang =languageFormat(language)
+          const question_pk =question.pk
+          const url = domain+'api/submit'
+          console.log(code,lang,question_pk,url)
+
+          const requestOptions = {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({
+                post_data:{
+                    code:codeTextInput,
+                    question_pk:question_pk,
+                    language:languageFormat(language)
+                }
+            })
+        };
+
+        var response = await fetch(url,requestOptions)
+        var result = response.json()
+        result.then((data)=>{
+            setpr_output(data)
+            settoShow("output")
+        }).catch((err)=>{
+            console.error(err)
+            settoShow("output")
+        })
 
       }
         return (
@@ -189,6 +221,15 @@ function Editor({question,setoutput,testcases,output_div,setcombined_result,sett
                                 }}>
                                 Run
                             </Button>}
+                            &nbsp;
+                            <Button variant="contained" color="primary" href="#contained-buttons"
+                            onClick={
+                                ()=>{
+                                    
+                                    handleSubmit()
+                                }}>
+                                Submit
+                            </Button>
                     </div>
                 </div>
 

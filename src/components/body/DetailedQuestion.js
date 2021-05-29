@@ -12,6 +12,7 @@ export function DetailedQuestion(){
     const [output, setoutput] = useState("")
     const [combined_result, setcombined_result] = useState([])
     const [toShow, settoShow] = useState("input")
+    const [pr_output, setpr_output] = useState([])
 
     document.title="doCode | solve problem" 
     
@@ -36,6 +37,8 @@ export function DetailedQuestion(){
                     }
                 }
                 settestcases(testcases)
+                console.clear()
+                
                 return setquestion(data[0])
                 } )
         }
@@ -93,7 +96,9 @@ export function DetailedQuestion(){
                          <Editor question ={question} setoutput ={setoutput}
                           testcases={testcases}
                           setcombined_result ={setcombined_result}
-                           output_div={output_div} settoShow={settoShow} />
+                           output_div={output_div} settoShow={settoShow}
+                           setpr_output ={setpr_output}
+                            />
                     </div>
                 </div>
                 <div className="row input_output_boxes_actions">
@@ -120,7 +125,8 @@ export function DetailedQuestion(){
                                 <th> Result  </th>
                             </thead>
                             <tbody>
-                            {combined_result.map(res=>DisplayResult(res))}
+                            {/* {combined_result.map(res=>DisplayResult(res))} */}
+                            {pr_output.length >=1 ?show_submit_result(pr_output): combined_result.map(res=>DisplayResult(res))}
                             </tbody>
                         </table>
                     </div>
@@ -135,4 +141,26 @@ export function DetailedQuestion(){
          {level}
      </p>
  }
- 
+ const show_submit_output = (item,index) =>{
+     
+         return <tr>
+             <td>{index+1}</td>
+             <td>{item.status}</td>
+         </tr>
+     
+ }
+ const show_submit_result=(pr_output) =>{
+     return <>
+        <table border ="1px solid black">
+            <thead>
+                <th>Test Case</th>
+                <th>Status</th>
+            </thead>
+            <tbody>
+                {pr_output.map((item,index)=>show_submit_output(item,index))}
+            </tbody>
+           
+        </table>
+     </>
+
+ }
