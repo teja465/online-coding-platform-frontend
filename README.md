@@ -13,5 +13,5 @@
  7)  Add authentication 
  8)  Create user profile page
  9)  show numbers  of question solved category wise(Easy,Medium,Hard) in profile page 
- 10)  Enable users to create contests and limit no of questions to 5 for ach contest
+ 10)  Enable users to create contests and limit no of questions to 5 for each contest
  
