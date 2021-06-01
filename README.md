@@ -1,5 +1,4 @@
-Author :katukuri.raviteja465@gmail.com
-If anyone intrested to Improve or Add  any  feature please send me a mail so we can discuss about it
+ katukuri.raviteja465@gmail.com
 # Online coding platform where users can select a question from available questions and type code and check whether their code passes all testcases or not.
 
 **Features need to be added (putting featues to this list to track my progress)**
