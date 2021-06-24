@@ -7,6 +7,7 @@ import {
 } from "react-router-dom";
 import ContributeProblem from "./components/contributions/ContributeProblem";
 import Login from './components/authentication/login/Login'
+import  Signup  from "./components/authentication/signup/Signup";
 
 
 import { DetailedQuestion } from "./components/body/DetailedQuestion";
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path ="/login">
             <Login />
+          </Route>
+          <Route exact path ="/signup">
+            <Signup />
           </Route>
          
         </Switch>

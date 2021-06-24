@@ -8,13 +8,13 @@ export default function Login() {
         localStorage.removeItem('token')
     }
     async function test_auth(){
-        const url =`${domain}api/test`
+        const url =`${domain}api/auth_test`
         const requestOptions = {
             method: 'GET',
             headers: { 
                 'Content-Type': 'application/json',
                 'Accept': 'application/json',
-                Authorization: `JWT ${localStorage.getItem('token')}`
+                Authorization: `${localStorage.getItem('token')}`
              },
            
             }
@@ -25,7 +25,7 @@ export default function Login() {
     async function handleLoginRequest(e){
         e.preventDefault()
         console.log(username,password)
-        const url =`${domain}token-auth/`
+        const url =`${domain}api/login`
             // var input_testcase=testcase;
             const requestOptions = {
                 method: 'POST',
@@ -37,10 +37,18 @@ export default function Login() {
             
             const response = await fetch(url,requestOptions);
             const result = await response.json();
+
             if(result.token){
                 localStorage.setItem('token',result.token)
             }
-            console.log(result)
+            if(result.failure){
+                alert("Invalid credentials \n please try again")
+            }
+            if(result.success){
+                alert("successfully logged in ")
+                setTimeout(function(){window.location.href="/"},2000)
+
+            }
 
 
     }
@@ -50,11 +58,12 @@ export default function Login() {
                 <br /><br /><br />
                 <input type="text" onChange={(e)=>setusername(e.target.value)}  placeholder="usernamae"/> <br /> <br />
                 <input type="password" onChange={(e)=>setpassword(e.target.value)}  placeholder="Password" /> <br />
-                <button type="submit" onClick={(e)=>handleLoginRequest(e)}>Login</button>
-            </form>
+                <button type="submit" onClick={(e)=>handleLoginRequest(e)}>Login</button> <br />
+                Dont have an account create one <a href="/signup"> signup</a>
 
-            <button onClick={()=>test_auth()}>auth test</button>
-            <button onClick={()=>handleLogout()}>Logout</button>
+            </form>
+            
+
             
         </div>
     )
